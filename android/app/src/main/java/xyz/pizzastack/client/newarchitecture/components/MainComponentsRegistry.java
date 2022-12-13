@@ -1,4 +1,4 @@
-package com.mobile.newarchitecture.components;
+package xyz.pizzastack.client.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;
