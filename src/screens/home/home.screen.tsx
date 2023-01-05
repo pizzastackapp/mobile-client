@@ -1,21 +1,17 @@
+import { CategoriesSection } from '@app/modules/menu/components/categories-section/categories-section.component';
+import { CategorySection } from '@app/modules/menu/components/category-section/category-section.component';
 import { homeScreenStyles } from '@app/screens/home/home.styles';
 import React, { FC } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { ScrollView } from 'react-native';
 
 interface HomeScreenProps {}
 
 export const HomeScreen: FC<HomeScreenProps> = ({}) => {
   return (
-    <View style={homeScreenStyles.container}>
-      <Text style={homeScreenStyles.categoriesTitle}>Категорії</Text>
-      <View style={homeScreenStyles.categoriesBtnsContainer}>
-        <TouchableOpacity style={homeScreenStyles.categoryBtn}>
-          <Text style={homeScreenStyles.categoryBtnText}>🍕 Піца</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={homeScreenStyles.categoryBtn}>
-          <Text style={homeScreenStyles.categoryBtnText}>🥤 Напої</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+    <ScrollView contentContainerStyle={homeScreenStyles.container}>
+      <CategoriesSection />
+      <CategorySection />
+      <CategorySection />
+    </ScrollView>
   );
 };
