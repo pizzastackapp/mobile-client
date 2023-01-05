@@ -1,13 +1,11 @@
-import { HomeScreen } from '@app/HomeScreen';
+import { HomeScreen } from '@app/screens/home/home.screen';
 import React, { useEffect } from 'react';
 import { SafeAreaView } from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 
 const App = () => {
   useEffect(() => {
-    setTimeout(() => {
-      SplashScreen.hide();
-    }, 5000);
+    SplashScreen.hide();
   }, []);
 
   return (
