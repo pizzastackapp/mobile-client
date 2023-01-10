@@ -1,3 +1,5 @@
+import { ApolloProvider } from '@apollo/client';
+import { apolloClient } from '@app/core/apollo-client';
 import { HomeScreen } from '@app/screens/home/home.screen';
 import React, { useEffect } from 'react';
 import { SafeAreaView } from 'react-native';
@@ -9,9 +11,11 @@ const App = () => {
   }, []);
 
   return (
-    <SafeAreaView>
-      <HomeScreen />
-    </SafeAreaView>
+    <ApolloProvider client={apolloClient}>
+      <SafeAreaView>
+        <HomeScreen />
+      </SafeAreaView>
+    </ApolloProvider>
   );
 };
 

@@ -1,79 +1,26 @@
+import { GetMenuQuery } from '@app/core/types';
 import { categorySectionStyles } from '@app/modules/menu/components/category-section/category-section.styles';
-import React, { FC } from 'react';
-import { View, Text, Image } from 'react-native';
+import { MenuItem } from '@app/modules/menu/components/menu-item/menu-item.component';
+import React, { forwardRef } from 'react';
+import { View, Text } from 'react-native';
 
-interface CategorySectionProps {}
+interface CategorySectionProps {
+  category: GetMenuQuery['categories'][0];
+}
 
-export const CategorySection: FC<CategorySectionProps> = ({}) => {
-  return (
-    <View>
-      <Text style={categorySectionStyles.categoryTitle}>🍕 Піца</Text>
-      <View style={categorySectionStyles.pizzaCardWrapper}>
-        <View style={categorySectionStyles.pizzaCard}>
-          <Image
-            style={categorySectionStyles.pizzaCardImage}
-            source={{
-              uri: 'https://res.cloudinary.com/pizzastack/image/upload/w_384,h_240,dpr_2.0/v1/menu/menu-1660636947?_a=AJE+xWI0',
-            }}
-          />
-          <Text style={categorySectionStyles.pizzaCardTitle}>
-            Піца карбонара
-          </Text>
-          <View style={categorySectionStyles.pizzaCardPriceWrapper}>
-            <Text style={categorySectionStyles.pizzaCardPriceTag}>
-              255 грн.
-            </Text>
-          </View>
-        </View>
-        <View style={categorySectionStyles.pizzaCard}>
-          <Image
-            style={categorySectionStyles.pizzaCardImage}
-            source={{
-              uri: 'https://res.cloudinary.com/pizzastack/image/upload/w_384,h_240,dpr_2.0/v1/menu/menu-1660636947?_a=AJE+xWI0',
-            }}
-          />
-          <Text style={categorySectionStyles.pizzaCardTitle}>
-            Піца карбонара
-          </Text>
-          <View style={categorySectionStyles.pizzaCardPriceWrapper}>
-            <Text style={categorySectionStyles.pizzaCardPriceTag}>
-              255 грн.
-            </Text>
-          </View>
-        </View>
-        <View style={categorySectionStyles.pizzaCard}>
-          <Image
-            style={categorySectionStyles.pizzaCardImage}
-            source={{
-              uri: 'https://res.cloudinary.com/pizzastack/image/upload/w_384,h_240,dpr_2.0/v1/menu/menu-1660636947?_a=AJE+xWI0',
-            }}
-          />
-          <Text style={categorySectionStyles.pizzaCardTitle}>
-            Піца карбонара
-          </Text>
-          <View style={categorySectionStyles.pizzaCardPriceWrapper}>
-            <Text style={categorySectionStyles.pizzaCardPriceTag}>
-              255 грн.
-            </Text>
-          </View>
-        </View>
-        <View style={categorySectionStyles.pizzaCard}>
-          <Image
-            style={categorySectionStyles.pizzaCardImage}
-            source={{
-              uri: 'https://res.cloudinary.com/pizzastack/image/upload/w_384,h_240,dpr_2.0/v1/menu/menu-1660636947?_a=AJE+xWI0',
-            }}
-          />
-          <Text style={categorySectionStyles.pizzaCardTitle}>
-            Піца карбонара
-          </Text>
-          <View style={categorySectionStyles.pizzaCardPriceWrapper}>
-            <Text style={categorySectionStyles.pizzaCardPriceTag}>
-              255 грн.
-            </Text>
-          </View>
+export const CategorySection = forwardRef<View, CategorySectionProps>(
+  ({ category }, ref) => {
+    return (
+      <View ref={ref}>
+        <Text style={categorySectionStyles.categoryTitle}>
+          {category.title}
+        </Text>
+        <View style={categorySectionStyles.pizzaCardWrapper}>
+          {category.menu_items.map(menuItem => (
+            <MenuItem key={`menuItem-${menuItem.id}`} item={menuItem} />
+          ))}
         </View>
       </View>
-    </View>
-  );
-};
+    );
+  },
+);

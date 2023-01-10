@@ -7,16 +7,26 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.3",
+    "@cloudinary/url-gen": "^1.8.7",
+    "graphql": "^16.6.0",
     "react": "18.1.0",
     "react-native": "0.70.6",
-    "react-native-splash-screen": "^3.3.0"
+    "react-native-scroll-into-view": "^2.0.2",
+    "react-native-splash-screen": "^3.3.0",
+    "use-dynamic-refs": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
+    "@graphql-codegen/cli": "^2.16.3",
+    "@graphql-codegen/typescript": "^2.8.7",
+    "@graphql-codegen/typescript-operations": "^2.5.12",
+    "@graphql-codegen/typescript-react-apollo": "^3.3.7",
     "@react-native-community/eslint-config": "^2.0.0",
     "@tsconfig/react-native": "^2.0.2",
     "@types/jest": "^26.0.23",
