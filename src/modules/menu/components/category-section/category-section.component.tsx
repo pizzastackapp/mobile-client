@@ -49,7 +49,10 @@ export const CategorySection = forwardRef<View, CategorySectionProps>(
     );
 
     return (
-      <View ref={ref} onLayout={handleOnLayout}>
+      <View
+        ref={ref}
+        onLayout={handleOnLayout}
+        style={categorySectionStyles.main}>
         <Text style={categorySectionStyles.categoryTitle}>
           {category.title}
         </Text>

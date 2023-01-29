@@ -3,6 +3,7 @@ query GetMenu {
     id
     slug
     title
+    emoji
     menu_items {
       id
       image

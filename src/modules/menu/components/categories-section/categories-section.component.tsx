@@ -28,7 +28,7 @@ export const CategoriesSection: FC<CategoriesSectionProps> = ({
             key={`category-btn-${category.id}`}
             onPress={() => handleTouchCategoryButton(category.id)}>
             <Text style={categoriesSectionStyles.categoryBtnText}>
-              {category.title}
+              {category.emoji} {category.title}
             </Text>
           </TouchableOpacity>
         ))}
