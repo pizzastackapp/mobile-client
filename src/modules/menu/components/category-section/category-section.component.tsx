@@ -1,17 +1,55 @@
 import { GetMenuQuery } from '@app/core/types';
 import { categorySectionStyles } from '@app/modules/menu/components/category-section/category-section.styles';
 import { MenuItem } from '@app/modules/menu/components/menu-item/menu-item.component';
-import React, { forwardRef } from 'react';
-import { View, Text } from 'react-native';
+import React, {
+  forwardRef,
+  RefObject,
+  useImperativeHandle,
+  useState,
+} from 'react';
+import {
+  View,
+  Text,
+  LayoutChangeEvent,
+  LayoutRectangle,
+  ScrollView,
+} from 'react-native';
 
 interface CategorySectionProps {
   category: GetMenuQuery['categories'][0];
+  scrollViewRef: RefObject<ScrollView>;
 }
 
+export type CategorySectionViewRef = View & {
+  scrollIntoMe: () => void;
+};
+
 export const CategorySection = forwardRef<View, CategorySectionProps>(
-  ({ category }, ref) => {
+  ({ category, scrollViewRef }, ref) => {
+    const [layout, setLayout] = useState<LayoutRectangle | null>(null);
+    const handleOnLayout = (event: LayoutChangeEvent) => {
+      setLayout(event.nativeEvent.layout);
+    };
+
+    useImperativeHandle<View, CategorySectionViewRef>(
+      ref,
+      // @ts-ignore
+      () => {
+        return {
+          scrollIntoMe: () => {
+            if (!layout) {
+              return;
+            }
+
+            scrollViewRef.current?.scrollTo({ y: layout.y - 16 });
+          },
+        };
+      },
+      [layout, scrollViewRef],
+    );
+
     return (
-      <View ref={ref}>
+      <View ref={ref} onLayout={handleOnLayout}>
         <Text style={categorySectionStyles.categoryTitle}>
           {category.title}
         </Text>

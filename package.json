@@ -8,7 +8,8 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "codegen": "graphql-codegen --config codegen.yml"
+    "codegen": "graphql-codegen --config codegen.yml",
+    "ports": "adb reverse tcp:8080 tcp:8080"
   },
   "dependencies": {
     "@apollo/client": "^3.7.3",
@@ -16,7 +17,6 @@
     "graphql": "^16.6.0",
     "react": "18.1.0",
     "react-native": "0.70.6",
-    "react-native-scroll-into-view": "^2.0.2",
     "react-native-splash-screen": "^3.3.0",
     "use-dynamic-refs": "^1.0.0"
   },
