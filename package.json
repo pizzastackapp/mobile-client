@@ -17,6 +17,7 @@
     "graphql": "^16.6.0",
     "react": "18.1.0",
     "react-native": "0.70.6",
+    "react-native-dotenv": "^3.4.7",
     "react-native-splash-screen": "^3.3.0",
     "use-dynamic-refs": "^1.0.0"
   },

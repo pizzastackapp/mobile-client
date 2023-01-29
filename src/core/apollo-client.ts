@@ -5,9 +5,10 @@ import {
   HttpLink,
   InMemoryCache,
 } from '@apollo/client';
+import { HASURA_URL } from '@env';
 
 const httpLink = new HttpLink({
-  uri: 'http://localhost:8080/v1/graphql',
+  uri: HASURA_URL,
 });
 
 const authMiddleware = new ApolloLink((operation, forward) => {
