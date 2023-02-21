@@ -19,6 +19,7 @@
     "react-native": "0.70.6",
     "react-native-dotenv": "^3.4.7",
     "react-native-splash-screen": "^3.3.0",
+    "react-native-toast-message": "^2.1.5",
     "use-dynamic-refs": "^1.0.0"
   },
   "devDependencies": {

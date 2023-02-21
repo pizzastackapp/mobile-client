@@ -4,6 +4,7 @@ import { HomeScreen } from '@app/screens/home/home.screen';
 import React, { useEffect } from 'react';
 import { SafeAreaView, View, StyleSheet, StatusBar } from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
+import Toast from 'react-native-toast-message';
 
 const appScreenStyles = StyleSheet.create({
   container: {
@@ -25,6 +26,7 @@ const App = () => {
           <HomeScreen />
         </SafeAreaView>
       </View>
+      <Toast />
     </ApolloProvider>
   );
 };
