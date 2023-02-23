@@ -9,13 +9,13 @@ import React, { FC, useEffect, useRef } from 'react';
 import { ScrollView } from 'react-native';
 import useDynamicRefs from 'use-dynamic-refs';
 import Toast from 'react-native-toast-message';
+import { MenuItemModal } from '@app/modules/menu/components/menu-item-modal/menu-item-modal.component';
 
 interface HomeScreenProps {}
 
 export const HomeScreen: FC<HomeScreenProps> = ({}) => {
   const { data, error } = useGetMenuQuery();
   useEffect(() => {
-    console.log(error?.networkError?.stack);
     if (error) {
       Toast.show({
         type: 'error',
@@ -29,18 +29,24 @@ export const HomeScreen: FC<HomeScreenProps> = ({}) => {
   const scrollViewRef = useRef<ScrollView>(null);
 
   return (
-    <ScrollView
-      contentContainerStyle={homeScreenStyles.container}
-      ref={scrollViewRef}>
-      <CategoriesSection categories={data?.categories || []} getRef={getRef} />
-      {data?.categories.map(category => (
-        <CategorySection
-          key={`category-${category.id}`}
-          category={category}
-          ref={setRef(`category-${category.id}`)}
-          scrollViewRef={scrollViewRef}
+    <>
+      <MenuItemModal />
+      <ScrollView
+        contentContainerStyle={homeScreenStyles.container}
+        ref={scrollViewRef}>
+        <CategoriesSection
+          categories={data?.categories || []}
+          getRef={getRef}
         />
-      ))}
-    </ScrollView>
+        {data?.categories.map(category => (
+          <CategorySection
+            key={`category-${category.id}`}
+            category={category}
+            ref={setRef(`category-${category.id}`)}
+            scrollViewRef={scrollViewRef}
+          />
+        ))}
+      </ScrollView>
+    </>
   );
 };

@@ -1,10 +1,21 @@
 import { Dimensions } from 'react-native';
 
-export const menuImageSize = () => {
+interface MenuImageSizeOptions {
+  width?: number;
+  originalHeight?: number;
+  originalWidth?: number;
+}
+
+export const menuImageSize = (
+  { width, originalHeight, originalWidth }: MenuImageSizeOptions = {
+    originalHeight: 105,
+    originalWidth: 163,
+  },
+) => {
   const windowWidth = Dimensions.get('window').width;
 
-  const pizzaCardWidth = windowWidth / 2 - 24;
-  const pizzaImageHeight = (105 / 163) * pizzaCardWidth;
+  const pizzaCardWidth = width ?? windowWidth / 2 - 24;
+  const pizzaImageHeight = (originalHeight! / originalWidth!) * pizzaCardWidth;
 
   return {
     width: pizzaCardWidth,

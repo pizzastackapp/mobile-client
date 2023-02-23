@@ -5,5 +5,6 @@ declare module 'use-dynamic-refs' {
 
 declare module '@env' {
   export const HASURA_URL: string;
+  export const NODE_ENV: string;
   export const CLOUDINARY_CLOUD_NAME: string;
 }
