@@ -23,7 +23,7 @@ export const RoundButton: FC<PropsWithChildren<RoundButtonProps>> = ({
   }
 
   return (
-    <TouchableOpacity style={buttonStyle}>
+    <TouchableOpacity style={buttonStyle} activeOpacity={0.7}>
       <View style={buttonViewStyles}>{children}</View>
     </TouchableOpacity>
   );

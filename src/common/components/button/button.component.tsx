@@ -8,7 +8,7 @@ interface ButtonProps {
 
 export const Button: FC<ButtonProps> = ({ label }) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity activeOpacity={0.7}>
       <View style={buttonStyles.buttonView}>
         <Text style={buttonStyles.buttonText}>{label}</Text>
       </View>

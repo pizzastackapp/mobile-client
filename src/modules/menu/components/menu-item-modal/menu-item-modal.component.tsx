@@ -7,6 +7,9 @@ import { menuImageSize } from '@app/modules/menu/utils/menu-image-size';
 import React from 'react';
 import { FC } from 'react';
 import { View, Image, Text, Dimensions } from 'react-native';
+import CrossIcon from '@app/assets/icons/cross.svg';
+import PlusIcon from '@app/assets/icons/plus.svg';
+import MinusIcon from '@app/assets/icons/minus.svg';
 
 interface MenuItemModalProps {}
 
@@ -42,7 +45,7 @@ export const MenuItemModal: FC<MenuItemModalProps> = ({}) => {
         />
         {/** @TODO: Add svg support */}
         <RoundButton buttonStyle={menuItemModalStyles.closeButton}>
-          <Text>X</Text>
+          <CrossIcon />
         </RoundButton>
         <View style={menuItemModalStyles.infoWrapper}>
           <View style={menuItemModalStyles.mainInfoWrapper}>
@@ -57,11 +60,11 @@ export const MenuItemModal: FC<MenuItemModalProps> = ({}) => {
         <View style={menuItemModalStyles.cartActionsWrapper}>
           <View style={menuItemModalStyles.changeCartWrapper}>
             <RoundButton size="LARGE">
-              <Text>-</Text>
+              <MinusIcon />
             </RoundButton>
             <Text style={menuItemModalStyles.cartQuantity}>2</Text>
             <RoundButton size="LARGE">
-              <Text>+</Text>
+              <PlusIcon />
             </RoundButton>
           </View>
           <Button label="Додати в корзину" />
