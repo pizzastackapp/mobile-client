@@ -10,11 +10,13 @@ import { View, Image, Text, Dimensions } from 'react-native';
 import CrossIcon from '@app/assets/icons/cross.svg';
 import PlusIcon from '@app/assets/icons/plus.svg';
 import MinusIcon from '@app/assets/icons/minus.svg';
+import { useNavigation } from '@react-navigation/native';
 
 interface MenuItemModalProps {}
 
 export const MenuItemModal: FC<MenuItemModalProps> = ({}) => {
   const { data } = useGetMenuQuery({ nextFetchPolicy: 'cache-only' });
+  const navigation = useNavigation();
 
   const windowWidth = Dimensions.get('window').width;
   const { width, height } = menuImageSize({
@@ -43,8 +45,9 @@ export const MenuItemModal: FC<MenuItemModalProps> = ({}) => {
             uri: image.createCloudinaryURL(),
           }}
         />
-        {/** @TODO: Add svg support */}
-        <RoundButton buttonStyle={menuItemModalStyles.closeButton}>
+        <RoundButton
+          buttonStyle={menuItemModalStyles.closeButton}
+          onPress={() => navigation.goBack()}>
           <CrossIcon />
         </RoundButton>
         <View style={menuItemModalStyles.infoWrapper}>

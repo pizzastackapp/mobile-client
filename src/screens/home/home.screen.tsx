@@ -9,7 +9,6 @@ import React, { FC, useEffect, useRef } from 'react';
 import { ScrollView } from 'react-native';
 import useDynamicRefs from 'use-dynamic-refs';
 import Toast from 'react-native-toast-message';
-import { MenuItemModal } from '@app/modules/menu/components/menu-item-modal/menu-item-modal.component';
 
 interface HomeScreenProps {}
 
@@ -30,7 +29,6 @@ export const HomeScreen: FC<HomeScreenProps> = ({}) => {
 
   return (
     <>
-      <MenuItemModal />
       <ScrollView
         contentContainerStyle={homeScreenStyles.container}
         ref={scrollViewRef}>

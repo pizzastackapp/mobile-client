@@ -19,6 +19,7 @@ export const menuItemModalStyles = StyleSheet.create({
     borderTopLeftRadius: 16,
     borderTopRightRadius: 16,
     position: 'relative',
+    marginTop: 'auto',
   },
   itemImage: {
     width: pizzaCardWidth,
